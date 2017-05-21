@@ -42,7 +42,7 @@
 
     <script>
         var oMenu = document.getElementById("menu");
-        var oLi = oMenu.getElementsByTagName("li");
+        var oLi = oMenu.getElementsByTagName("li"); //得到的是一个类似数组的集合（只有一个也是集合）
         //oncontextmenu 鼠标右键的触发事件
         document.oncontextmenu = function(e){
             e = e || window.event;  //满足兼容性问题，标准和非标准都可以用
