@@ -1,0 +1,162 @@
+
+
+/*new-product开始*/
+
+#new-product {
+    height: 266px;
+    margin-top: 40px;
+}
+
+#new-product .sale{
+
+    width: 360px;
+    height: 210px;
+    float: left;
+    margin-right: 30px;
+}
+#new-product .bg1{
+    background: url(../IMG/bg1.jpg) ;
+}
+
+#new-product .bg2{
+    background: url(../IMG/bg2.jpg) ;
+}
+
+#new-product .bg3{
+    background: url(../IMG/bg3.jpg) ;
+    margin-right: 0;
+}
+
+#new-product .sale h4{
+    margin-top: 150px;
+    margin-left: 210px;
+    font-size: 30px;
+    color: white;
+}
+
+/*new-product结束*/
+
+/*product开始*/
+
+#product{
+    height: 1000px;
+}
+
+.product-info{
+    width: 340px;
+    height: 440px;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 35px;
+    margin-top: 20px;
+}
+.product-info img{
+    width: 248px;
+    height: 248px;
+    border: 1px solid #ccc;
+    vertical-align: bottom;
+}
+
+.product-info .new{
+    background: #fa558f;
+    color: white;
+    float: right;
+    margin-left: 10px;
+
+}
+
+.product-detail{
+    padding-left: 10px;
+    background: #faf8f8;
+    height: 190px;
+    width: 330px;
+}
+
+.product-detail h3{
+    padding-top: 10px;
+}
+
+
+.product-detail input{
+    width: 150px;
+    height: 30px;
+    text-indent: 10px;  /*文本缩进*/
+    outline: none;  /*取消获取焦点*/
+}
+
+.add{
+    width: 150px;
+    height: 50px;
+    background: coral;
+    color: #fff;
+    border:0;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+.add:hover{
+    background: deepskyblue;
+    font-size: 25px;
+}
+
+/*product结束*/
+
+
+
+
+/*problem开始*/
+#problem {
+    height: 400px;
+    background: url(../IMG/banner2.jpg) no-repeat center;
+}
+
+#problem .wrapper{
+    width: 1000px;
+}
+
+.problem-menu{
+    padding-left: 40px;
+    margin-right: 40px;
+    margin-top: 100px;
+    float: left;
+}
+
+#problem li{
+    list-style: disc; /*实心点*/
+    color: white;
+}
+#problem li a {
+    color: #fff;
+}
+.product-menu li a:hover{
+    text-decoration: underline;
+}
+
+.menu-bold{
+    font-weight: bolder;
+}
+
+.other{
+    opacity: 0.8;
+    font-size: 12px;
+}
+/*problem结束*/
+
+
+/* footer开始 */
+#footer{
+    height: 82px;
+    background: #fa558f;
+    line-height: 82px;
+}
+#footer h3, #footer h4{
+    color: #fff;
+}
+#footer h3{
+    float: left;
+}
+#footer h4{
+    float: right;
+}
+/* footer结束 */
