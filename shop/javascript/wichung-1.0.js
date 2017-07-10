@@ -44,9 +44,8 @@ function getByClass(className, context, tag){
  */
 /*function $(selector, context){
     switch(selector.charAt(0)){
-        case '#':
-            return [id(selector.substring(1))];
-            break;
+            return [id(selector.substring(1))];     //将得到的一个元素放在数组的第一个位置，统一返回值类型（都是数组）
+            break;                                  //，相应的，使用id的时候要[0]
         case '.':
             return getByClass(selector.substring(1), context);
             break;

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id = "d">
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+</div>
+
+    <script>
+
+//        var oDiv2 = document.getElementById('div2');
+//        /**
+//         * @function 获取一个节点的所有兄弟节点
+//         * @param elem 当前元素
+//         * @return {Array}返回当前节点的所有兄弟节点
+//         */
+//        function siblings(elem) {
+//            var a = [];
+//            var p = elem.parentNode.children;
+//            console.log(p);
+//            for(var i = 0; i< elem.length ; i++){
+//                if(p[i] != elem){
+//                    a.push(p[i]);
+//                    console.log(p[i]);
+//                }
+//            }
+//            console.log(a);
+//            return a;
+//        }
+//        console.log(siblings(oDiv2));
+
+        var oDiv2 = document.getElementById('div2');
+/**
+ * @function 将传入的元素删除
+ * @param 元素
+ *
+ */
+function delete1(elem) {
+    elem.parentNode.removeChild(elem);
+}
+
+/**
+ * 在给定的当前元素的前面插入一个新元素
+ * @param elem当前元素
+ */
+function before(elem, newNode) {
+    elem.parentNode.insertBefore(newNode,elem);
+}
+/**
+ * 在当前元素的后面插入一个元素
+ *
+ */
+function after(elem, newNode) {
+    var next = elem.nextElementSibling;
+    if(!next){  //当前节点不存在下一个兄弟
+        elem.parentNode.appendChild(newNode);
+    }else{      //存在下一个兄弟
+        before(next,newNode);
+    }
+}
+var newN = create()
+after()
+    </script>
+</body>
+</html>
