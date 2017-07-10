@@ -1,3 +1,10 @@
+/**
+ * @function        JS获取元素
+ * @param selector 要选择的元素，前面加‘#’ ‘.’
+ * @param context  要选择元素的范围
+ * @return {*}      选择到的元素（统一为数组，ID使用取数组的0号元素
+ */
+
 function $(selector, context) {
     context = context || document;
     switch(selector.charAt(0)){
@@ -12,37 +19,48 @@ function $(selector, context) {
             break;
     }
 }
+
+
+
 /**
- * 返回指定的元素的下一个元素兄弟
- * @param elem
- * @return 指定的元素的下一个元素兄弟
+ * @function 返回指定的元素的下一个元素兄弟，解决了IE的不支持nextElementSibling问题
+ * @param elem当前元素
+ * @return 指定的元素的下一个兄弟元素
  */
 function next(elem) {
-    do{
+    do{     //至少找一次下一个兄弟
         elem = elem && elem.nextSibling;
-    }while(elem && elem.nodeType != 1);
+    }while(elem && elem.nodeType != 1);     //当为空或者节点为1（元素节点）跳出循环
     return elem;
 }
+
+
+
 /**
- * 返回指定的元素的前一个元素兄弟
+ * @function 返回指定的元素的前一个元素兄弟
  * @param elem
  * @return 指定的元素的前一个元素兄弟
  */
 function prev(elem) {
     do{
+        //为了防止当前元素的前一个为空 elem && ...
         elem = elem && elem.previousSibling;
     }while(elem && elem.nodeType != 1);
     return elem;
 }
 
+
+
 /**
- * 查找指定元素的第一个孩子节点
+ * @function 查找指定元素的第一个孩子节点
  * @param elem
  */
 function first(elem) {
     elem = elem.firstChild;
     return elem && elem.nodeType == 1 ? elem : next(elem);
 }
+
+
 
 /**
  * 查找指定元素的最后一个孩子节点
@@ -53,6 +71,8 @@ function last(elem) {
     return elem && elem.nodeType == 1 ? elem : prev(elem);
 }
 
+
+
 /**
  * 在给定的当前元素的前面插入一个新元素
  * @param elem
@@ -60,6 +80,8 @@ function last(elem) {
 function before(elem, newNode) {
     elem.parentNode.insertBefore(newNode, elem);
 }
+
+
 
 //        before(oH1, oSpan);
 /**
@@ -75,6 +97,8 @@ function after(elem, newNode) {
     }
 }
 
+
+
 /**
  * 删除给定的元素
  * @param elem
@@ -82,6 +106,8 @@ function after(elem, newNode) {
 function remove(elem) {
     elem.parentNode.removeChild(elem);
 }
+
+
 
 /**
  * @param elem 当前元素
@@ -98,17 +124,28 @@ function siblings(elem) {
     return arr;
 }
 
+/**
+ * @function 深复制一个对象（两个存储空间）
+ * @param obj
+ * @return {{}}
+ */
 function cloneObj(obj) {
+    //用于存储复制后的对象
     var newObj = {};
+    //遍历复制obj各个属性，for（ in ）
     for(var p in obj){
+        //当对象的属性是对象时，递归调用复制函数
         if(typeof obj[p] === 'object'){
-            newObj[p] = arguments.callee(obj[p]);
-        }else{
+            //对调用复制函数复制‘对象属性’给新对象的属性
+            newObj[p] = arguments.callee(obj[p]);   //等价于cloneObj（）
+        }else{      ////基本属性直接复制
             newObj[p] = obj[p];
         }
     }
     return newObj;
 }
+
+
 
 /**
  * @param target 被合并的目标对象
