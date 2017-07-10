@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+var o1 ={
+  name:'houwei',
+    brother : {
+      name :'zouhao'
+    }
+};
+
+function cloneObj(obj) {
+    //用于存储复制后的对象
+    var newObj = {};
+    //遍历复制obj各个属性，for（ in ）
+    for(var p in obj){
+        //当对象的属性是对象时，递归调用复制函数
+        if(typeof obj[p] === 'object'){
+            //对调用复制函数复制‘对象属性’给新对象的属性
+            newObj[p] = cloneObj(obj[p]);
+        }else{  //基本属性直接复制
+            newObj[p] = obj[p];
+        }
+    }
+    return newObj;  //返回复制后的新对象
+}
+var o2 = cloneObj(o1);
+console.log(o2.brother.name);
+
+
+
+/**
+ * @function 合并一个已知对象到另一个已知对象
+ * @param target 被合并的目标对象
+ * @param obj  要合并的对象
+ * @return 返回合并的新对象
+ */
+function extend(target, obj) {
+    //遍历复制obj各个属性，for（ in ）
+    for(var p in obj){
+        //当对象的属性是对象时，递归调用复制函数
+        if(typeof obj[p] === 'object'){
+            //对调用复制函数复制‘对象属性’给新对象的属性
+            target[p] = cloneObj(obj[p]);
+        }else{  //基本属性直接复制
+            target[p] = obj[p];
+        }
+    }
+    return target;  //返回复制后的新对象
+}
+
+var a = {
+    name:'1',
+    age:2
+};
+var b = {
+    name:'2',
+    sex:{
+        name:1,
+        age:2
+    }
+}
+extend(a,b);
+console.log(a);
+
+    </script>
+</body>
+</html>
