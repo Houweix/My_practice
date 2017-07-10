@@ -3,21 +3,45 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        #form{
+            width: 200px;
+            height: 200px;
+            /*position: relative;*/
+        }
+        #form input{
+            margin-left: 10px;
+            width: 40px;
+
+        }
+        #form label{
+            width: 70px;
+            height: 23px;
+            display: block;
+        }
+        #form input{
+            position: absolute;
+            /*right: 10px;*/
+            float: right;
+        }
+        .wrapper{
+            margin: 0 auto;
+            width: 200px;
+            height: 200px;
+            background: #cccccc;
+        }
+    </style>
 </head>
 <body>
-    <script>
-    var obj = document.getElementById("jjsdksd");  //不存在的一个ID
-    console.log(obj);   //null
-
-    var a;
-    console.log(a);     //undefined
-
-    console.log(obj == a);  //true
-    console.log(obj === a); //false
-
-    console.log(typeof obj);    //object
-    console.log(typeof a);      //undefined
-
-    </script>
+<div class = "wrapper">
+    <form action="" id="form">
+        <label>
+            hou:<input type="text" name="ming">
+        </label>
+        <label>
+            wei:<input type="text" name="ming">
+        </label>
+    </form>
+</div>
 </body>
 </html>

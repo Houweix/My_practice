@@ -3,29 +3,139 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 190px;
+            height: 210px;
+            /*设置父元素参照物*/
+            position: relative;
+            margin: 100px auto;
+        }
+        #imgs img{
+            display: none;
+        }
+        #imgs .selected{
+            display: block;
+        }
+        #nav{
+            /*设置绝对定位，相对于父元素右下角*/
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #nav .selected{
+            background: orange;
+        }
+        #arrows{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #nav li,#arrows div{
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            background: #000;
+            color: #efefef;
+            text-align: center;
+            line-height: 15px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
     <div id="container">
         <div id="imgs">
-            <img src="Image/1.jpg" alt="" />
-            <img src="Image/2.jpg" alt=""/>
-            <img src="Image/3.jpg" alt=""/>
-            <img src="Image/4.jpg" alt=""/>
+            <img src="img/1.jpg" alt="" class="selected">
+            <img src="img/2.jpg" alt=""/>
+            <img src="img/3.jpg" alt=""/>
+            <img src="img/4.jpg" alt=""/>
         </div>
 
         <ul id="nav">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
+            <li class="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
-        <ul id="arrow">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <ul id ="arrows">
+            <div id="left">&lt</div>
+            <div id="right">&gt</div>
         </ul>
     </div>
 
+    <script>
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var oImg = document.getElementById("imgs");
+        var aImg = oImg.getElementsByTagName("img");
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var oContainer = document.getElementsByName("container");
+
+        var nowIndex = 0;   //保存当前选中的下标
+        var timer;
+
+
+
+        for(var i = 0; i<aLi.length; i++){
+            aLi[i].index = i;
+//            当鼠标经过nav的上方触发事件
+            aLi[i].onmouseover = function () {
+                nowIndex = this.index;
+                changeImg();
+            };
+        }
+
+
+
+
+        //左右键的触发事件
+        oLeft.onclick = oRight.onclick = function(){
+            if(this === oLeft){
+                nowIndex--;
+                if(nowIndex == -1){
+                    nowIndex = aLi.length - 1;
+                }
+            }else{
+                nowIndex++;
+                if(nowIndex == aLi.length){
+                    nowIndex = 0;
+                }
+            }
+            changeImg();
+        };
+
+        //阻止浏览器默认状态（选中的状态）
+        oLeft.onselectstart = oRight.onselectstart = function(){
+            return false;
+        };
+
+
+        //        函数功能：改变图片为当前触发下标的图片
+        function changeImg() {
+            for(var i = 0; i<aLi.length; i++){
+                aLi[i].className = "";
+                aImg[i].className = "";
+            }
+//            设置成对应的选中状态
+            aLi[nowIndex].className = "selected";
+            aImg[nowIndex].className = "selected";
+        }
+
+
+
+    </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container h3{
+            background: #000000;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        #container {
+            width: 200px;
+            border:1px solid #000;
+            text-align: center;
+        }
+        .submenu li:hover{
+            background: #cccccc;
+            cursor: pointer;
+        }
+        .submenu{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="container">
+        <li>
+            <h3>管理区</h3>
+            <ul class="submenu">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+                <li>004</li>
+            </ul>
+        </li>
+        <li>
+            <h3>交流区</h3>
+            <ul class="submenu">
+                <li>004</li>
+                <li>005</li>
+                <li>006</li>
+                <li>007</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var oContainer = document.getElementById("container");
+        var aH3 = oContainer.getElementsByTagName("h3");
+        var aSubmenu = oContainer.getElementsByTagName("ul");
+        for(var i = 0;i<aH3.length;i++){
+            aH3[i].index = i;   //自定义属性，保留aH3和submenu的下标的对应关系
+            aH3[i].flag = false;    //false是关闭，true时打开
+            aH3[i].onclick = function(){
+                if(this.flag == false){
+                    aSubmenu[this.index].style.display = "block";
+                }else{
+                    aSubmenu[this.index].style.display = "none";
+                }
+                this.flag = !this.flag;
+                return false;
+            };
+        }
+    </script>
+    <script src="../shop/javascript/wichung-1.0.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* css重置开始 */
+/* css锟斤拷锟矫匡拷始 */
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@ img{
 li{
     list-style: none;
 }
-/* css重置结束 */
+/* css锟斤拷锟矫斤拷锟斤拷 */
 
 .wrapper{
     width: 1140px;
@@ -21,7 +21,7 @@ li{
     margin: 0 auto;
 }
 
-/*  header开始  */
+/*  header锟斤拷始  */
 #header{
     background: url(../IMG/banner33.jpg) no-repeat center;
     height: 250px;
@@ -41,8 +41,8 @@ li{
     width: 280px;
     height: 50px;
     background: #000 url(../IMG/cart.png) 230px center no-repeat;
-    opacity: .5;/* 取值范围0~1 */
-    filter: alpha(opacity=50);/* ie下  取值范围0~100 */
+    opacity: .5;/* 取值锟斤拷围0~1 */
+    filter: alpha(opacity=50);/* ie锟斤拷  取值锟斤拷围0~100 */
     color: #fff;
     text-align: center;
     cursor: pointer;
@@ -112,9 +112,9 @@ li{
     height: 25px;
     line-height: 25px;
 }
-/*  header结束  */
+/*  header锟斤拷锟斤拷  */
 
-/* footer开始 */
+/* footer锟斤拷始 */
 #footer{
     height: 82px;
     background: #fa558f;
@@ -129,5 +129,5 @@ li{
 #footer h4{
     float: right;
 }
-/* footer结束 */
+/* footer */
 
