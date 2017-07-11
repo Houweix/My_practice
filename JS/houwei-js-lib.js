@@ -218,10 +218,83 @@ function getStyle(elem, attr) {
  * @return {*}
  */
 function css(elem, attr, value) {
-    if(value){  //如果给value传了值，就设置
+    if(value){//如果给value传了值
         elem.style[attr] = value;
-    }else{      //没设置值就获取
-        if(typeof attr === 'string')
-            return elem.style[attr];
+    }else{    //没设置值就获取
+        if(typeof attr === 'string'){       //属性是一个普通字符串
+            return getStyle(elem, attr);
+        }else{
+            for(var p in attr){ //属性是一个对象
+                switch(p){
+                    case 'width':
+                    case 'height':
+                    case 'padding':
+                    case 'paddingLeft':
+                    case 'paddingRight':
+                    case 'paddingTop':
+                    case 'paddingBottom':
+                        //如果是%就不变，负数变成0
+                        value = /\%/.test(attr[p])?attr[p]:Math.max(parseInt(attr[p]), 0) + 'px';
+                        break;
+                    case 'left':
+                    case 'top':
+                    case 'bottom':
+                    case 'right':
+                    case 'margin':
+                    case 'marginLeft':
+                    case 'marginRight':
+                    case 'marginTop':
+                    case 'marginBottom':
+                        value = /\%/.test(attr[p])?attr[p]:parseInt(attr[p]) + 'px';
+                        break;
+                    default:
+                        value = attr[p];
+                }
+                elem.style[p] = value;
+            }
+        }
+    }
+}
+
+
+/**
+ *
+ * @function 兼容多种浏览器的绑定事件
+ * @param elem
+ * @param type
+ * @param fn
+ */
+function addEvent(elem, type, fn) {
+    if(elem.addEventListener){  //标准浏览器
+        elem.addEventListener(type,fn,false);
+    }else if(elem.attachEvent){ //IE
+        elem.attachEvent('on'+type,fn); //this绑定成了window IE的bug
+    }else{
+        elem['on'+type] = fn;
+    }
+}
+
+
+
+function addEvent(elem, type, fn) {
+    if(elem.addEventListener){//标准
+        elem.addEventListener(type, fn, false);
+    }else if(elem.attachEvent){
+        elem[type+fn] = function () {
+            fn.call(elem);
+        };
+        elem.attachEvent('on'+type, elem[type+fn]);
+    }else{
+        elem['on' + type] = fn;
+    }
+}
+
+function removeEvent(elem, type, fn) {
+    if(elem.removeEventListener){
+        elem.removeEventListener(type, fn, false);
+    }else if(elem.detachEvent){
+        elem.detachEvent('on'+type, elem[type+fn]);
+    }else{
+        elem['on' + type] = null;
     }
 }
