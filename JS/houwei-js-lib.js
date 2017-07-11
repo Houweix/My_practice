@@ -193,5 +193,20 @@ function trim(str) {
 }
 
 
+/***
+ * @function 获取当前元素样式
+ * @param elem 要获取样式的元素
+ * @param 要获取哪个样式
+ * @return *
+ */
+function getStyle(elem, attr) {
+    if(elem.currentStyle){  //IE
+        return elem.currentStyle[attr];
+    }else if(elem.getComputedStyle){    //标准浏览器firefox和chrome
+        return elem.getComputedStyle[attr];
+    }else{
+        return elem.style[attr];
+    }
+}
 
 
