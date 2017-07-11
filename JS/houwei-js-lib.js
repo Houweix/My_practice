@@ -6,7 +6,7 @@
  */
 
 function $(selector, context) {
-    context = context || document;
+    context = context || document;      //如果传范围，就使用这个范围 不传使用document
     switch(selector.charAt(0)){
         case '#': //id
             return [document.getElementById(selector.substring(1))];
@@ -161,4 +161,36 @@ function extend(target, obj) {
         }
     }
     return target;
+}
+
+
+/**
+ * 去除字符串首尾空格
+ * @param str
+ * @return {string}
+ */
+function trim(str) {
+    return str.replace(/^\s+|\s+$/g, '');
+}
+
+
+
+
+/**
+ * 查找包含有className的元素
+ * @param className
+ * @param context
+ * @return {Array}
+ */
+function getByClass(className, context) {
+    context = context || document;
+    var result = [];
+    var arr = context.getElementsByTagName('*');         //'*' 找所有标签
+    var re = new RegExp("\\b"+className+"\\b");         //字符串中\需要转义字符
+    for(var i=0; i<arr.length; i++){
+        if(re.test(arr[i].className)){      //指定范围内有满足正则条件的classname，添加到数组中
+            result.push(arr[i]);
+        }
+    }
+    return result;
 }
