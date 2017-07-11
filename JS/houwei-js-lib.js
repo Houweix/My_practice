@@ -209,4 +209,19 @@ function getStyle(elem, attr) {
     }
 }
 
-
+/**
+ *
+ * @function 获取属性的值或设置属性的值
+ * @param elem
+ * @param attr
+ * @param value
+ * @return {*}
+ */
+function css(elem, attr, value) {
+    if(value){  //如果给value传了值，就设置
+        elem.style[attr] = value;
+    }else{      //没设置值就获取
+        if(typeof attr === 'string')
+            return elem.style[attr];
+    }
+}
