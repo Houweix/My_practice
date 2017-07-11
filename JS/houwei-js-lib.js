@@ -12,7 +12,7 @@ function $(selector, context) {
             return [document.getElementById(selector.substring(1))];
             break;
         case '.': //class
-            return context.getElementsByClassName(selector.substring(1));
+            return getByClass(selector.substring(1),context);
             break;
         default: //tag
             return context.getElementsByTagName(selector);
@@ -20,6 +20,25 @@ function $(selector, context) {
     }
 }
 
+
+/**
+ * 查找包含有className的元素
+ * @param className
+ * @param context
+ * @return {Array}
+ */
+function getByClass(className, context) {
+    context = context || document;
+    var result = [];
+    var arr = context.getElementsByTagName('*');         //'*' 找所有标签
+    var re = new RegExp("\\b"+className+"\\b");         //字符串中\需要转义字符
+    for(var i=0; i<arr.length; i++){
+        if(re.test(arr[i].className)){      //指定范围内有满足正则条件的classname，添加到数组中
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
 
 
 /**
@@ -176,21 +195,3 @@ function trim(str) {
 
 
 
-/**
- * 查找包含有className的元素
- * @param className
- * @param context
- * @return {Array}
- */
-function getByClass(className, context) {
-    context = context || document;
-    var result = [];
-    var arr = context.getElementsByTagName('*');         //'*' 找所有标签
-    var re = new RegExp("\\b"+className+"\\b");         //字符串中\需要转义字符
-    for(var i=0; i<arr.length; i++){
-        if(re.test(arr[i].className)){      //指定范围内有满足正则条件的classname，添加到数组中
-            result.push(arr[i]);
-        }
-    }
-    return result;
-}
