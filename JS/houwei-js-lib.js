@@ -260,40 +260,35 @@ function css(elem, attr, value) {
 /**
  *
  * @function 兼容多种浏览器的绑定事件
- * @param elem
- * @param type
- * @param fn
+ * @param elem  要绑定事件的元素
+ * @param type  绑定事件的类型
+ * @param fn    事件处理函数
  */
-function addEvent(elem, type, fn) {
-    if(elem.addEventListener){  //标准浏览器
-        elem.addEventListener(type,fn,false);
-    }else if(elem.attachEvent){ //IE
-        elem.attachEvent('on'+type,fn); //this绑定成了window IE的bug
-    }else{
-        elem['on'+type] = fn;
-    }
-}
-
-
-
 function addEvent(elem, type, fn) {
     if(elem.addEventListener){//标准
         elem.addEventListener(type, fn, false);
     }else if(elem.attachEvent){
         elem[type+fn] = function () {
-            fn.call(elem);
+            fn.call(elem);         //this绑定成了window IE的bug
         };
-        elem.attachEvent('on'+type, elem[type+fn]);
+        elem.attachEvent('on'+type, elem[type+fn]); //通过自定义属性解决绑定和解除不是同一个函数的问题
     }else{
         elem['on' + type] = fn;
     }
 }
 
+/**
+ * @function 移除绑定事件
+ * @param elem 要解除绑定事件的元素
+ * @param type  解除那个事件
+ * @param fn    解除事件函数
+ */
 function removeEvent(elem, type, fn) {
-    if(elem.removeEventListener){
+    if(elem.removeEventListener){   //标准浏览器
         elem.removeEventListener(type, fn, false);
-    }else if(elem.detachEvent){
-        elem.detachEvent('on'+type, elem[type+fn]);
+
+    }else if(elem.detachEvent){     //IE浏览器
+        elem.detachEvent('on'+type, elem[type+fn]);     //解决覆盖问题
     }else{
         elem['on' + type] = null;
     }
