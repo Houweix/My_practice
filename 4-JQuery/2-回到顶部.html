@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        #toTop{
+            width: 50px;
+            height: 50px;
+            line-height:50px;
+            background: gray;
+            text-align: center;
+            color: white;
+            position: fixed;
+            right: 10px;
+            bottom:10px;
+            cursor: pointer;
+        }
+        body{
+            height: 2000px;
+            background: #cccccc;
+        }
+        .wrapper{
+            width: 700px;
+            height: 2000px;
+            margin: 0 auto;
+            background: red;
+            text-align: center;
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="toTop">toTop</div>
+    <div id="content" class = wrapper>假装有内容</div>
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        //原生方法
+//        var otoTop = document.getElementById('toTop');
+//        otoTop.onclick = function () {
+//            var timer = setInterval(function () {
+//                var iScroll = document.body.scrollTop || document.documentElement.scrollTop;
+//                if(iScroll <= 0)
+//                    clearInterval(timer);
+//                window.scrollTo(10, iScroll-=20);    //第一个参数是水平，第二个是垂直
+//            },10)
+//        };
+
+        //JQuery方法
+        $(function () {
+            $("#toTop").on("click",function () {
+                var timer = setInterval(function () {
+                    var iScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    if(iScroll <= 0)
+                        clearInterval(timer);
+                    window.scrollTo(10, iScroll-=15);    //第一个参数是水平，第二个是垂直
+                },5)
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
