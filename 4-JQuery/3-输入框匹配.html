@@ -6,13 +6,27 @@
 </head>
 <body>
 
+    输入：<input type="text" name="" id="search">
 
+    <ul id="menu">
+        <li>iphone</li>
+        <li>huawei</li>
+        <li>xiaomi</li>
+    </ul>
 
 
     <script src="../jquery-3.2.1.js"></script>
     <script>
-        //原生方法
-
+        $(function(){
+            $("#search").on("keyup", function(){
+                $("#menu li").css("background","transparent");
+                if(this.value != ""){
+                    $("#menu li:contains(" + this.value.toLowerCase() + ")").css("background", "red");  //忽略大小写
+                }else{
+                    $("#menu li").css("background", "transparent");
+                }
+            });
+        });
     </script>
 </body>
 </html>
