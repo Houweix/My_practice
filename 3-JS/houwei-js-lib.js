@@ -30,7 +30,7 @@ function $(selector, context) {
 function getByClass(className, context) {
     context = context || document;
     var result = [];                //新建一个数组，用来存满足classname的元素
-    var arr = context.getElementsByTagName('*');         //'*' 找所有标签
+    var arr = context.getElementsByClassName('*');         //'*' 找所有标签
     //这里复习正则表达式中\b的用法
     var re = new RegExp("\\b"+className+"\\b");         //字符串中\需要转义字符
     for(var i=0; i<arr.length; i++){
@@ -298,7 +298,7 @@ function removeEvent(elem, type, fn) {
         elem.removeEventListener(type, fn, false);
 
     }else if(elem.detachEvent){     //IE浏览器
-        elem.detachEvent('on'+type, elem[type+fn]);     //解决覆盖问题
+        elem.detachEvent('on'+type, elem[type+fn]);     //解决覆盖问题(与attachEvent对应)
     }else{
         elem['on' + type] = null;
     }
