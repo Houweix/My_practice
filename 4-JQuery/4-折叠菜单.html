@@ -20,6 +20,9 @@
             width: 200px;
             border:1px solid #000;
             text-align: center;
+            position: relative;
+            left: 500px;
+            top: 200px;
         }
         .submenu li:hover{
             background: #cccccc;
@@ -57,7 +60,7 @@
 
     $(function () {
         $("#container h3").on("click",function () {
-            $(this).next().stop().slideToggle();
+            $(this).next().stop().slideToggle(1000);
         })
     });
 </script>
