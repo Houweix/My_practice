@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            border: 0;
+        }
+        #container{
+            position: relative;
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+        }
+        #imgs img{
+            display: none;
+        }
+        #imgs .selected{
+            display: block;
+        }
+        #nav{
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+        #nav li, #arrows div{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #nav .selected{
+            background: orange;
+        }
+        #arrows{
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="img/1.jpg" alt="" class="selected">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul id="nav">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <div id="left">&lt;</div>
+            <div id="right">&gt;</div>
+        </div>
+    </div>
+
+
+    <script src="../jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            var $imgs = $("#imgs img");
+            var $lis = $("#nav li");
+            var nowIndex = 0;   //必须赋初值，否则刚加载页面点左右不能切换
+            var timer;
+
+            //给1,2,3,4方格绑定鼠标滑入事件
+            $lis.on("mouseover",function () {
+                nowIndex = $(this).index(); //缓存当前点击下标
+                changeImg();
+                });
+
+
+            //给左右箭头绑定事件
+            $("#arrows div").on("click",function () {
+                if($(this).text() == "<"){   //左
+
+                    nowIndex--;
+                    if(nowIndex == -1){
+                        nowIndex = $lis.length - 1;
+                    }
+
+                }else{              //右
+
+                    nowIndex++;
+                    if(nowIndex == $lis.length){
+                        nowIndex = 0;
+                    }
+                }
+                changeImg();
+            });
+
+
+            /**
+             * @function 切换对应下标的照片
+             *
+             */
+            function changeImg(){
+                $lis.eq(nowIndex).addClass("selected").siblings().removeClass("selected");
+                $imgs.eq(nowIndex).addClass("selected").siblings().removeClass("selected");
+
+            }
+
+
+            $("#container").hover(function () {
+                clearInterval(timer);
+            },function () {
+                play();
+            });
+
+            play();
+
+
+            function play() {
+                timer = setInterval(function () {
+                    $("#right").trigger("click");   //模拟点击右箭头的事件
+                },1000);
+            }
+
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
