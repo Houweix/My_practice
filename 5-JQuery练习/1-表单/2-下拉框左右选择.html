@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>下拉框左右选择</title>
 
-    <style >
-        * { margin:0; padding:0; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
         div.centent {
-            float:left;
+            float: left;
             text-align: center;
             margin: 10px;
             position: relative;
@@ -15,14 +19,15 @@
             top: 200px;
 
         }
+
         span {
-            display:block;
-            margin:2px 2px;
-            padding:4px 10px;
-            background:#898989;
-            cursor:pointer;
-            font-size:12px;
-            color:white;
+            display: block;
+            margin: 2px 2px;
+            padding: 4px 10px;
+            background: #898989;
+            cursor: pointer;
+            font-size: 12px;
+            color: white;
         }
     </style>
 
@@ -41,8 +46,8 @@
         <option value="7">选项7</option>
     </select>
     <div>
-        <span id="add" >选中添加到右边&gt;&gt;</span>
-        <span id="add_all" >全部添加到右边&gt;&gt;</span>
+        <span id="add">选中添加到右边&gt;&gt;</span>
+        <span id="add_all">全部添加到右边&gt;&gt;</span>
     </div>
 </div>
 
@@ -57,40 +62,37 @@
 </div>
 
 
-
 <script src="../../jquery-3.2.1.js"></script>
 <script>
 
-    $(function(){
-        //移到右边
-        $('#add').click(function() {
-            //获取选中的选项，删除并追加给对方
-            $('#select1 option:selected').appendTo('#select2');
+    $(function () {
+        //变量缓存
+        var $select1 = $("#select1");
+        var $select2 = $("#select2");
+        //点击移动到右边
+        $("#add").on("click", function(){
+            $("#select1 option:selected").appendTo($select2);
         });
-        //移到左边
-        $('#remove').click(function() {
-            $('#select2 option:selected').appendTo('#select1');
+        //点击全部移动到右边         注意appendTo是剪切
+        $("#add_all").on("click", function(){
+            $("#select1 option").appendTo($select2);
         });
-        //全部移到右边
-        $('#add_all').click(function() {
-            //获取全部的选项,删除并追加给对方
-            $('#select1 option').appendTo('#select2');
+        //把选中的option移到左边
+        $("#remove").on("click", function(){
+            $("#select2 option:selected").appendTo($select1);
         });
-        //全部移到左边
-        $('#remove_all').click(function() {
-            $('#select2 option').appendTo('#select1');
+        //全部的option移到左边
+        $("#remove_all").on("click", function(){
+            $("#select2 option").appendTo($select1);
         });
-        //双击选项
-        $('#select1').dblclick(function(){ //绑定双击事件
-            //获取全部的选项,删除并追加给对方
-            $("option:selected",this).appendTo('#select2'); //追加给对方
+        //给父元素绑定双击事件，然后利用e.tatgrt获取事件源移动到对面
+        $("#select1").on("dblclick", function(e){
+            $(e.target).appendTo($select2);
         });
-        //双击选项
-        $('#select2').dblclick(function(){
-            $("option:selected",this).appendTo('#select1');
+        $("#select2").on("dblclick", function(e){
+            $(e.target).appendTo($select1);
         });
     });
-
 
 
 </script>
