@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+	<meta charset="utf-8">
+	<link href="css/default.css" rel="stylesheet" type="text/css" />
+	//css文件和id对应
+    <link href="css/skin_0.css" rel="stylesheet" type="text/css" id="cssfile" />
+</head>
+<body>
+    <ul id="skin">
+		<li id="skin_0" class="selected"></li>
+		<li id="skin_1"></li>
+		<li id="skin_2"></li>
+		<li id="skin_3"></li>
+		<li id="skin_4"></li>
+		<li id="skin_5"></li>
+	</ul>
+
+    <div id="div_side_0">
+		<div id="news">
+		    <h1 class="title">时事新闻</h1>
+		</div>
+    </div>
+
+    <div id="div_side_1">
+		<div id="game">
+			<h1 class="title">娱乐新闻</h1>
+		</div>
+    </div>
+
+    //先引入JQuery，在引入cookie
+	<script src="js/jquery-1.11.2.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script>
+		$(function(){
+		    //如果从cookie中找到缓存的皮肤，就读取
+            if($.cookie("skin")){
+                var skin = $.cookie("skin");//skin_2
+				changeSkin(skin);
+            }
+
+            //点击事件换肤
+			$("#skin li").on("click", function(){
+			    //获取当前点击li的id值
+			    var skin = $(this).attr("id");
+			    //cookie的name，name的值，过期时间
+			    $.cookie("skin", skin, {expires: 30});  //保存到cookie中
+			    changeSkin(skin);
+			});
+
+
+            /**
+             * @function 切换皮肤（改变属性）
+             * @param skin
+             */
+            function changeSkin(skin){
+                //切换link标签的href属性
+                $("#cssfile").attr("href", "css/"+ skin +".css");
+                //切换css精灵图  切换对应的selected类
+                $("#" + skin).addClass("selected").siblings().removeClass("selected");
+			}   //给当前skin加上对应的类，给其他兄弟都去掉这个类
+		});
+	</script>
+</body>
+</html>
