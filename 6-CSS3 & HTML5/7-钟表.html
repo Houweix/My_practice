@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        #plate{
+            position: relative;
+            margin:0 auto;
+            top: 120px;
+            width: 500px;
+            height: 500px;
+            border: 3px solid black;
+            -webkit-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        #scale li{
+            width: 3px;
+            height: 15px;
+            background: #000;
+            list-style: none;
+            position: absolute;
+            margin-bottom:1px;
+            left:250px;
+            top:0px;
+        }
+
+        body{
+            height: 700px
+        }
+
+
+        #scale li:nth-child(5n+1){
+            height: 23px;
+            background: red;
+        }
+
+
+
+        #hour{
+            width: 4px;
+            height: 140px;
+            background: #000000;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+        }
+
+        #minute{
+            width: 7px;
+            height: 160px;
+            background: #999;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+        }
+
+        #second{
+            width: 6px;
+            height: 180px;
+            background: red;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+        }
+
+        #hh{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-image: url("滑稽.png");
+            opacity: 0.7;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+
+        #plate #hour,#minute,#second{
+            /*设置旋转中心为底部*/
+            transform-origin: bottom;
+        }
+
+        #follow{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            -webkit-background-size: contain;
+            background-size: contain;
+            background-image: url("滑稽.png");
+            left: 50%;
+            margin-left: -22.5px;
+            top:-25px;
+        }
+
+        #huaji {
+            color: #efcb71;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="plate">
+
+        <span id = "huaji">
+             滑稽钟表
+        </span>
+        <ul id="scale">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <div id="hh"></div>
+        <div id="follow"></div>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+
+
+
+
+
+    </div>
+
+    <script>
+
+        var oScale = document.getElementById("scale");
+        var aLi = oScale.getElementsByTagName("li");
+
+        var oHour = document.getElementById('hour');
+        var oMinute = document.getElementById('minute');
+        var oSecond = document.getElementById('second');
+
+        var oFollow = document.getElementById("follow");
+        oFollow.style.transformOrigin = "22.5px 271.5px";
+
+
+        for (var i = 0; i< aLi.length ; i++){
+            aLi[i].style.transformOrigin = "0px 250px";
+            aLi[i].style.transform = "rotate("+i*6+"deg)";
+        }
+
+
+
+
+
+        run();
+
+        setInterval(run, 1000);
+
+
+
+        function run(){
+            var now = new Date();
+            var second = now.getSeconds();
+            var minute = now.getMinutes() + second / 60;
+            var hour = now.getHours() ;//+ minute / 60
+            oHour.style.transform = "rotate("+ (hour * 30 + minute / 60 * 30)  +"deg)";
+            oMinute.style.transform = "rotate("+ minute * 6 +"deg)";
+            oSecond.style.transform = "rotate("+ second * 6 +"deg)";
+            oFollow.style.transform = "rotate("+ second * 6 +"deg)";
+        }
+
+
+
+    </script>
+</body>
+</html>
