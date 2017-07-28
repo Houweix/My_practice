@@ -209,6 +209,7 @@
 
         for (var i = 0; i< aLi.length ; i++){
             aLi[i].style.transformOrigin = "0px 250px";
+//            字符串拼接成指定的旋转角度
             aLi[i].style.transform = "rotate("+i*6+"deg)";
         }
 
@@ -227,6 +228,7 @@
             var second = now.getSeconds();
             var minute = now.getMinutes() + second / 60;
             var hour = now.getHours() ;//+ minute / 60
+//            校准时针的度数要加上分针的那一部分
             oHour.style.transform = "rotate("+ (hour * 30 + minute / 60 * 30)  +"deg)";
             oMinute.style.transform = "rotate("+ minute * 6 +"deg)";
             oSecond.style.transform = "rotate("+ second * 6 +"deg)";

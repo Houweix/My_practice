@@ -11,14 +11,18 @@
         #container{
             width: 500px;
             margin: 100px auto;
+            /*父元素相对定位，参照物*/
             position: relative;
         }
         #container img{
+            /*子元素绝对定位*/
             position: absolute;
             top: 0;
             left: 0;
             border: 10px solid #ccc;
-            box-shadow: 5px 5px 5px rgba(50, 50, 50, .4);
+
+            /*box-shadow: h-shadow v-shadow blur spread color inset;*/
+            box-shadow: 5px 5px 10px 20px rgba(50, 50, 50, .4);
             transition: all 1s ease;
         }
         #container img:first-child{
@@ -28,6 +32,7 @@
             transform: rotate(-20deg);
         }
         #container img:hover{
+            /*hover时改变旋转角度，放大，z-index的值*/
             box-shadow: 10px 10px 5px rgba(50, 50, 50, .4);
             z-index: 1;
             transform: scale(1.2) rotate(0);/*  rotate(0) */

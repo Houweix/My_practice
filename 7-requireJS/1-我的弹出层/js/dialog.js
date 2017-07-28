@@ -30,7 +30,9 @@ define(["jquery"],function ($) {
         this.$content = $('<div class="dialog-content"></div>');
     }
 
-    //打开方法
+
+    //“打开”方法
+    //方法中的this都是指的是实例化对象
     Dialog.prototype.open = function () {
         //注意append的主体始终是$container，最后追加到dom中（body）
         this.$container.append(this.$mask).append(this.$box).appendTo(document.body);
@@ -56,9 +58,9 @@ define(["jquery"],function ($) {
         }//if-else
 
         this.$close.on("click",function () {
-            // this.$container.remove();
+            //this.$container.remove();
            this.close();
-        //将this指向为oContainer，因为要remove整个容器，bind只修改，不会立即调用
+        //将this指向为该类的实例化对象，因为要remove整个容器，bind只修改，不会立即调用
         }.bind(this));
 
     };//open

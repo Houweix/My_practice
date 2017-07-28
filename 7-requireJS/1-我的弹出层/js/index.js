@@ -19,7 +19,9 @@ require(["jquery","dialog"],function ($,Dialog) {
 
         }
 
+        //建立一个对象，也就是一个弹出层
         var dialog = new Dialog(settings);
+        //开启方法
         dialog.open();
 
 
