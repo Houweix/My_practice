@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h3{
+            width: 960px;
+            height: 100px;
+            background: #cccccc;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+            margin: 30px auto;
+        }
+
+        figure{
+            width: 960px;
+            /*图片居中*/
+            margin: 0 auto;
+        }
+
+        /*插图下的图片*/
+        figure img{
+            width: 960px;
+            /*转换成块级元素可以消除图片下的白边（空隙）*/
+            display: block;
+        }
+        article{
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #left{
+            width: 630px;
+            height: 300px;
+            background: #00ff00;
+            float: left;
+        }
+
+        #right{
+            width: 300px;
+            background: #ffff00;
+            float: right;
+        }
+
+        /*多行文字垂直居中*/
+        #left, #right{
+            display: table;
+        }
+        #left p, #right p{
+            display: table-cell;
+            /*设置元素在父元素中的位置*/
+            vertical-align: middle;
+        }
+
+
+        /*相当于插入一个伪元素，撑开高度，就不会塌陷*/
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        /*当宽度小于959px时，设置以下样式*/
+        @media (max-width: 959px) {
+
+            /*如果父元固定宽度（撑着），子元素缩小不起作用*/
+
+            h3, article, figure{
+                /*相对于父元素100%*/
+                width: 100%;
+            }
+
+            /*响应式布局中，设置宽高都用百分比设置*/
+            #left{
+                width: 67%;
+                margin-right: 3%;
+            }
+            #right{
+                width: 30%;
+            }
+
+        figure img{
+            width: 100%;
+            /*设置最大缩放100%*/
+            max-width: 100%;
+            }
+        }
+
+        /*当页面宽度小于480时，调整文字的宽度为100%*/
+        @media (max-width: 479px) {
+            #left, #right{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <!--使用html5（h5）语义化标签-->
+    <header>
+        <h3>页头</h3>
+    </header>
+
+    <nav>
+        <h3>导航</h3>
+    </nav>
+    <!--相当于插图的功能-->
+    <figure>
+        <img src="img.jpg" alt="">
+    </figure>
+
+    <!--父元素清除浮动，不发生元素塌陷的情况clearfix -->
+    <article class="clearfix">
+
+        <section id="left">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus
+                vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam
+                quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </section>
+
+        <section id="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus
+                vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam
+                quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </section>
+
+    </article>
+
+    <footer>
+        <h3>页脚</h3>
+    </footer>
+</body>
+</html>

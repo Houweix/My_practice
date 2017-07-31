@@ -19,7 +19,8 @@ $(function () {
 
    var aContent = document.getElementsByClassName("content");
     for(var i = 0; i<aContent.length;i++){
-        aContent[i].style.background = "url('img/content ("+(i+1)+").jpg')";
+        // 给index.html设置url，所以路径是相对于html文件的
+        aContent[i].style.background = "url(img/content ("+(i+1)+").jpg)";
         aContent[i].style.left = i*100+"px";
     }
 });
