@@ -1,0 +1,322 @@
+/*header开始*/
+#header{
+    height: 100px;
+    display: flex;
+    position: relative;
+}
+
+#menu{
+    width: 82px;
+    height: 46px;
+    margin-top: 27px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#club{
+    width: 82px;
+    height: 42px;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 29px;
+    transition: all 0.3s ease;
+}
+
+#club span a{
+    color: #b89f7a;
+    font-weight: bold;
+}
+
+#logo{
+    flex-grow: 1;
+    text-align: center;
+}
+#logo img{
+    width: 73px;
+    height: 73px;
+    margin-top: 8px;
+}
+
+#side-bar{
+    position: fixed;
+    left: 0px;
+    width: 270px;
+    height: 100%;
+    background: #292929;
+    z-index: 2;
+}
+
+#side-bar .head{
+    color: #b89f7a;
+}
+
+#side-bar img{
+    position: absolute;
+    right: 5px;
+}
+
+#mask{
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1920px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+#side-bar li{
+    width: 270px;
+    text-indent: 15px;
+    color: #FFFFFF;
+    cursor: pointer;
+    position: relative;
+    padding: 13px 0 13px 0;
+}
+
+#side-bar li:hover{
+    color: #b89f7a;
+}
+
+
+#side-bar .head:hover{
+    color: #FFFFFF;
+}
+
+
+#side-bar .submenu{
+    display: none;
+}
+
+#side-bar .submenu li{
+    text-indent: 20px;
+    font-size: 15px;
+}
+
+
+/*header结束*/
+
+
+/*banner开始*/
+
+#banner{
+    display: block;
+    width: 100%;
+}
+#banner img{
+    /*给图片设置block去掉图片下的白边框*/
+    display: block;
+    width: 100%;
+}
+#banner img:nth-child(2){
+    display: none;
+}
+
+
+@media (max-width: 991px) {
+    #banner img:nth-child(1){
+        display: none;
+    }
+    #banner img:nth-child(2){
+        display: block;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #club{
+        font-size: 12px;
+        margin-right: 3px;
+    }
+}
+
+
+
+/*card开始*/
+#card{
+    height: 220px;
+    background: #0f0f0f;
+}
+
+
+#container{
+    width: 768px;
+    height: 220px;
+    display: flex;
+    background: #0f0f0f;
+    margin: 0 auto;
+
+}
+
+/*左侧*/
+#card .left{
+    width: 0;
+    background:url(../img/rewards_bg.png);
+    flex-grow: 1;
+}
+
+
+#card .text{
+    width: 80px;
+    height: 100px;
+    position: relative;
+}
+
+#card .img{
+    width: 80px;
+    height: 110px;
+    position: relative;
+}
+
+
+#card .left p{
+    width: 100px;
+    color: #FFFFFF;
+    font-size: 20px;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+
+}
+
+#card .left img{
+    width: 160px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 100px;
+}
+
+/*右侧*/
+
+#card .right{
+    /*为了保证布局（分配的份数）不变，要设置宽度0*/
+    width: 0;
+    flex-grow: 1;
+}
+
+
+#card .right{
+    color: #FFFFFF;
+}
+
+
+#card .right .top p:nth-child(1){
+     height: 60px;
+     line-height: 60px;
+     font-size: 25px;
+     margin: 5px 12px;
+ }
+
+#card .right .top p:nth-child(2){
+    margin: 10px 12px;
+
+}
+
+#card .right button{
+    background: #0f0f0f;
+    color: #a98e67;
+    padding: 14px 40px;
+    border: 2px solid #a98e67;
+    margin: 7px 14px;
+
+}
+
+#card .right button:hover{
+    background: #a98e67;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 767px){
+    #card{
+        height: 491px;
+    }
+    #container{
+        height: 491px;
+        width: 100%;
+        display: block;
+    }
+
+    #card .left{
+        width: 200px;
+        flex-grow: 0;
+    }
+    #card .right{
+        width: 100%;
+        flex-grow: 0;
+
+    }
+
+}
+
+
+
+
+
+/*card结束*/
+
+/*app开始*/
+
+#app{
+    height: 220px;
+
+}
+
+#app .container{
+    width: 100%;
+    height: 220px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#app .container .left{
+    width: 0;
+    flex-grow: 1;
+    background: #00ff00;
+    background: url(../img/app_device.png) no-repeat 120px 0/contain;
+
+}
+
+
+
+#app .container .center{
+    width: 0;
+    flex-grow:0.6;
+    background: #ff0000;
+}
+
+
+#app .container .right{
+    width: 0;
+    flex-grow:1.2;
+    background: #0000ff;
+}
+
+
+/*#app .container .left{*/
+    /*width: 350px;*/
+    /*height: 200px;*/
+    /*right: 10px;*/
+/*}*/
+
+
+
+/*app结束*/
+
+
+
+#together{
+    background: #dddddd;
+    height: 348px;
+}
+
+
+
+
+
+
+
+
+
