@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--字符集-->
+    <meta charset="UTF-8">
+    <!--开启IE的兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端视口调整-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>栅格系统</title>
+
+    <!--引入bootstrap的CSS文件-->
+    <link rel="stylesheet" href="bootstrap.css">
+
+
+    <style>
+
+        .container div{
+            background: #cccccc;
+            border:1px solid #0f0f0f;
+        }
+
+        .first{
+            margin-top: 10px;
+        }
+        .second{
+            margin-top: 10px;
+
+        }
+        .third{
+            margin-top: 10px;
+
+        }
+        .fourth{
+            margin-top: 10px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+    <div class="container">
+        <h1 class="text-center">我的第一个栅格系统</h1>
+
+        <div class="row first">
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+            <div class="col-md-1">.col-md-1</div>
+        </div>
+
+        <div class="row second">
+            <div class="col-md-8">.col-md-8</div>
+            <div class="col-md-4">.col-md-4</div>
+        </div>
+
+        <div class="row third">
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4">.col-md-4</div>
+            <div class="col-md-4">.col-md-4</div>
+        </div>
+
+        <div class="row fourth">
+            <div class="col-md-6">.col-md-6</div>
+            <div class="col-md-6">.col-md-6</div>
+        </div>
+
+    </div>
+
+
+    <!--先引入jq文件，再引入bootstrap文件-->
+    <script src="../jquery-3.2.1.js"></script>
+    <script src="bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--字符集-->
+    <meta charset="UTF-8">
+    <!--开启IE的兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端视口调整-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>嵌套和排序</title>
+
+    <!--引入bootstrap的CSS文件-->
+    <link rel="stylesheet" href="bootstrap.css">
+
+
+    <style>
+
+        .container{
+            margin-top: 20px;
+        }
+
+
+        [class*="col-"]{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: rgba(86,61,124,0.2);
+            border: 1px solid #000000;
+
+        }
+
+        .row .row{
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">嵌套</h1>
+        <div class="row">
+            <div class="col-sm-9">
+                Level 1: .col-sm-9
+                <div class="row">
+                    <div class="col-xs-8 col-sm-6">
+                        Level 2: .col-xs-8 .col-sm-6
+                    </div>
+                    <div class="col-xs-4 col-sm-6">
+                        Level 2: .col-xs-4 .col-sm-6
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<!--先引入jq文件，再引入bootstrap文件-->
+<script src="../jquery-3.2.1.js"></script>
+<script src="bootstrap.js"></script>
+</body>
+</html>

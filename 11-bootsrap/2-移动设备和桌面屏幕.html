@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--字符集-->
+    <meta charset="UTF-8">
+    <!--开启IE的兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端视口调整-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>xxxx</title>
+
+    <!--引入bootstrap的CSS文件-->
+    <link rel="stylesheet" href="bootstrap.css">
+
+
+    <style>
+
+        .container{
+            margin-top: 20px;
+        }
+        .container div{
+            background: #cccccc;
+            border: 1px solid #000000;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <div class="row">
+            <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        </div>
+
+        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+        <div class="row">
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+        </div>
+
+        <!-- Columns are always 50% wide, on mobile and desktop -->
+        <div class="row">
+            <div class="col-xs-6">.col-xs-6</div>
+            <div class="col-xs-6">.col-xs-6</div>
+        </div>
+    </div>
+
+
+<!--先引入jq文件，再引入bootstrap文件-->
+<script src="../jquery-3.2.1.js"></script>
+<script src="bootstrap.js"></script>
+</body>
+</html>
