@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--字符集-->
+    <meta charset="UTF-8">
+    <!--开启IE的兼容模式-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--移动端视口调整-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>xxxx</title>
+
+    <!--引入bootstrap的CSS文件-->
+    <link rel="stylesheet" href="bootstrap.css">
+
+
+    <style>
+
+        .container{
+            margin-top: 20px;
+        }
+
+
+        [class*="col-"]{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            background-color: rgba(86,61,124,0.2);
+            border: 1px solid #000000;
+
+        }
+
+        .row .row{
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+
+
+        <!--标题-->
+        <h1>h1. Bootstrap heading</h1>
+        <h2>h2. Bootstrap heading</h2>
+        <h3>h3. Bootstrap heading</h3>
+        <h4>h4. Bootstrap heading</h4>
+        <h5>h5. Bootstrap heading</h5>
+        <h6>h6. Bootstrap heading</h6>
+
+        <!--在标题内还可以包含 <small> 标签或赋予 .small 类的元素，可以用来标记副标题。-->
+        <!--副标题-->
+        <h1>h1. Bootstrap heading <small>Secondary text</small></h1>
+        <h2>h2. Bootstrap heading <small>Secondary text</small></h2>
+        <h3>h3. Bootstrap heading <small>Secondary text</small></h3>
+        <h4>h4. Bootstrap heading <small>Secondary text</small></h4>
+        <h5>h5. Bootstrap heading <small>Secondary text</small></h5>
+        <h6>h6. Bootstrap heading <small>Secondary text</small></h6>
+
+        <!--页面主体-->
+        <h1 >页面主体</h1>
+        <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+
+
+        <!--中心内容   使用.lead让段落突出显示-->
+        <h1 >中心内容</h1>
+        <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+
+
+        <!--标记文本-->
+        <h1 >标记文本</h1>
+        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+
+        <!--被删除的文本-->
+        <h1 >被删除文本</h1>
+        <del>This line of text is meant to be treated as deleted text.</del>
+
+        <!--插入文本-->
+        <h1 >插入文本</h1>
+        <ins>This line of text is meant to be treated as an addition to the document.</ins>
+
+
+        <!--带下划线的文本-->
+        <h1 >下划线</h1>
+        <u>This line of text will render as underlined</u>
+
+        <!--小号文本-->
+        <h1>小号文本</h1>
+        <small>This line of text is meant to be treated as fine print.</small>
+
+        <!--着重-->
+        <h1 >着重</h1>
+        <strong>rendered as bold text</strong>
+
+
+        <h1 >对齐</h1>
+        <p class="text-left">Left aligned text.</p>
+        <p class="text-center">Center aligned text.</p>
+        <p class="text-right">Right aligned text.</p>
+        <p class="text-justify">Justified text.</p>
+        <p class="text-nowrap">No wrap text.</p>
+
+        <h1>改变大小写</h1>
+        <p class="text-lowercase">Lowercased text.</p>
+        <p class="text-uppercase">Uppercased text.</p>
+        <p class="text-capitalize">Capitalized text.</p>
+
+        <h1 >缩略语</h1>
+        <!--当鼠标悬停在缩写和缩写词上时就会显示完整内容，-->
+        <!--Bootstrap 实现了对 HTML 的 <abbr> 元素的增强样式。-->
+        <!--缩略语元素带有 title 属性，外观表现为带有较浅的虚线框，-->
+        <!--鼠标移至上面时会变成带有“问号”的指针。-->
+        <!--如想看完整的内容可把鼠标悬停在缩略语上-->
+        <!--, 但需要包含 title 属性。-->
+        <abbr title="attribute">attr</abbr>
+
+        <h1>首字母所略语</h1>
+        <!--为缩略语添加 .initialism 类，-->
+        <!--可以让 font-size 变得稍微小些。-->
+        <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+
+        <h1>默认样式的引用</h1>
+        <!--将html元素包含在<blockquote>标签中即为引用-->
+        <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+
+        <h1>多种样式的引用</h1>
+        <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+
+        <!--反向：右对齐-->
+        <blockquote class="blockquote-reverse">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+
+        <h1>无样式列表</h1>
+        <ul class="list-unstyled">
+            <li>123</li>
+            <li>123</li>
+            <li>123</li>
+            <li>123</li>
+        </ul>
+
+        <h1>内联列表</h1>
+        <ul class="list-inline">
+            <li>loren</li>
+            <li>loren</li>
+            <li>loren</li>
+        </ul>
+
+
+        <h1>代码</h1>
+        For example, <code>&lt;section&gt;</code> should be wrapped as inline.
+        <!--注意尖括号要转义处理-->
+        <pre>&lt;p&gt;Sample text here...&lt;/p&gt;</pre>
+
+        <h1>变量</h1>
+        <!--通过 <var> 标签标记变量。-->
+
+        <var>y</var> = <var>m</var><var>x</var> + <var>b</var>
+
+        <h1>输出</h1>
+        <samp>This text is meant to be treated as sample output from a computer program.</samp>
+
+        <h1>表格</h1>
+        <!--为table标签添加.table类-->
+        <table class="table">
+            ...
+        </table>
+
+
+
+
+
+    </div>
+
+
+<!--先引入jq文件，再引入bootstrap文件-->
+<script src="../jquery-3.2.1.js"></script>
+<script src="bootstrap.js"></script>
+</body>
+</html>

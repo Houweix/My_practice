@@ -10,7 +10,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 
-    <title>xxxx</title>
+    <title>列偏移</title>
 
     <!--引入bootstrap的CSS文件-->
     <link rel="stylesheet" href="bootstrap.css">
@@ -35,35 +35,29 @@
             margin-top: 10px;
             margin-bottom: 0;
         }
+
     </style>
 
 </head>
 <body>
-
+    <!--栅格系统-->
     <div class="container">
-        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <h1 class="text-center">列偏移</h1>
         <div class="row">
-            <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+            <div class="col-md-4">col-md-4</div>
+            <div class="col-md-8">col-md-8</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-2">col-md-4 col-md-offset-2</div>
+
         </div>
 
-        <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
-        <div class="row">
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-            <div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
-        </div>
-
-        <!-- Columns are always 50% wide, on mobile and desktop -->
-        <div class="row">
-            <div class="col-xs-6">.col-xs-6</div>
-            <div class="col-xs-6">.col-xs-6</div>
-        </div>
     </div>
 
 
-<!--先引入jq文件，再引入bootstrap文件-->
-<script src="../jquery-3.2.1.js"></script>
-<script src="bootstrap.js"></script>
+
+    <!--先引入jq文件，再引入bootstrap文件-->
+    <script src="../jquery-3.2.1.js"></script>
+    <script src="bootstrap.js"></script>
 </body>
 </html>
