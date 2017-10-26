@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keyup</title>
+</head>
+<body>
+
+
+<div id="app">
+    <!--keyup按键-->
+    <!--按键修饰符：当选择的是功能键时，必须配合其他键使用-->
+    <!--当只有一个kerup时，表示任何键都有效-->
+    <input type="text" @keyup.ctrl = "fn">
+    <!--<input type="text" @keyup.shift.enter = "fn">-->
+</div>
+
+</body>
+<script src="vue.js"></script>
+<script>
+
+
+    new Vue({
+        el:'#app',
+        data:{
+
+        },
+        methods:{
+            fn:function(){
+                console.log(event.target.value);
+            }
+        }
+    })
+
+</script>
+</html>

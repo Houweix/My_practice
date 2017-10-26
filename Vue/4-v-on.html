@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        .font{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--<p :id="aa">pppp</p>-->
+    <!--class style-->
+
+    <!--对象形式 类名：类名的对应值（vue对象的data中找）
+    <div :class="{red:isRed,font:isFont}">ddddddddddd</div>
+
+    另一种对象形式
+    <div :class="classObj">ddddddddddd</div>
+
+    数组形式-->
+    <div :class="[classA,classB]">ddddddddddd</div>
+
+
+    <template v-for = "n in 2">
+
+        <span></span>
+        <p></p>
+
+    </template>
+
+
+</div>
+</body>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            aa:'id1',
+
+            //对象形式1
+//            isRed:false,
+//            isFont:true,
+
+            //对象形式2（整体都是一个对象）
+//            classObj:{
+//                red:true,
+//                font:false
+//            },
+
+            //数组形式
+            classA:'',
+            classB:'font'
+        }
+
+
+    });
+
+
+
+
+</script>
+</html>

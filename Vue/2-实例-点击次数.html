@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <!--点击次数：{{number}}-->
+
+        点击次数：<span v-text="number"></span>
+        <!--绑定事件，调用事件处理函数fn-->
+        <button @click = "fn" >点我</button>
+
+        <!--number++也可以-->
+        <!--<button @click = "number++" >点我</button>-->
+    </div>
+
+</body>
+
+
+<script src="vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:'#app',//作用域
+        data:{
+            number:0
+        },
+
+        methods:{
+
+            fn:function () {
+                vm.number++;
+//                注意这里的this指向当前vm对象
+//                this.number++;
+            }
+
+//            ES6写法
+//
+//            fn(){
+//                vm.number++;
+//            }
+
+        }
+    });
+
+</script>
+</html>

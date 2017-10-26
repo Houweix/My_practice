@@ -13,7 +13,7 @@
             perspective-origin: center -100px;
             background: #000;
         }
-        #container{
+        #container1{
             width: 190px;
             height: 108px;
             position: relative;
@@ -22,7 +22,7 @@
             /*background: #ff0000;*/
             transition: all 1s ease;
         }
-        #container img{
+        #container1 img{
             width: 190px;
             height: 108px;
             position: absolute;
@@ -55,15 +55,12 @@
     <!--然后给父容器的父容器设置视角（因为要变换父容器），给父容器设视角保留transform-style: preserve-3d;-->
 
 
-    <div id="container">
-        <h2 id = "h2">泰坦陨落2</h2>
-        <h4 id = "h4">Titanfall™ 2</h4>
-    </div>
+    <div id="container1"></div>
 
 
     <script>
 
-        var oContainer = document.getElementById("container");
+        var oContainer = document.getElementById("container1");
         var counter = 0;
         var oh2 = document.getElementById("h2");
         var oh4 = document.getElementById("h4");
