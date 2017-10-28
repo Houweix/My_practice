@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>search</title>
+
+    <style>
+
+        li{
+            list-style: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="app">
+
+        <input type="text" v-model="msg">
+        <button @click="add">add</button>
+
+        <ul>
+            <li v-for="val in arr">
+                <span v-text="val"></span>
+            </li>
+        </ul>
+    </div>
+
+
+
+<script src = "vue.js"></script>
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg :"",
+            arr:[]
+
+        },
+        methods:{
+            add(){
+
+                this.arr.push(this.msg);
+                this.msg = '';
+
+
+            }
+
+
+        }
+
+
+    });
+
+
+</script>
+</body>
+</html>
