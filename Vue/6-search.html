@@ -10,18 +10,23 @@
             list-style: none;
         }
 
+
+        .red{
+
+            color: red;
+        }
     </style>
 </head>
 <body>
 
     <div id="app">
 
-        <input type="text" v-model="msg">
+        <input type="text" v-model="msg" @keyup="search">
         <button @click="add">add</button>
 
         <ul>
-            <li v-for="val in arr">
-                <span v-text="val"></span>
+            <li v-for="obj in arr" @click="obj.active = !obj.active;"  :class = "{red:obj.active}">
+                <span v-text="obj.val"></span>
             </li>
         </ul>
     </div>
@@ -31,20 +36,39 @@
 <script src = "vue.js"></script>
 <script>
 
-    var vm = new Vue({
+    new Vue({
         el:"#app",
         data:{
-            msg :"",
-            arr:[]
+            msg:"",
+            arr:[],
+//            新建立一个数组，用于存储过滤后的元素
+            showArr:[]
 
         },
         methods:{
             add(){
 
-                this.arr.push(this.msg);
+                this.arr.push({val:this.msg,active:false});
                 this.msg = '';
+                //数组排序
+                this.arr.sort(function (a, b) {
+                    return a.val > b.val;
+                });
+
+                this.showArr = this.arr;
+
+            },
 
 
+            search(){
+
+//              arr.filter是一个过滤器方法
+//              这里要使用=>函数是因为匿名函数的this指向window
+//              使用=>使this指向为所在的代码段（vue对象）
+                var filterArr = this.arr.filter((obj)=>{
+                    return obj.val.includes(this.msg);
+                });
+                this.showArr = filterArr;
             }
 
 
