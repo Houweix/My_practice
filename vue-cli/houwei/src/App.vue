@@ -1,7 +1,14 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+
+    <div>
+      <router-link to="/">首页</router-link>
+      <router-link to="/h">测试</router-link>
+    </div>
+    <!--这里相当于一个占位符，替代各个路由的视图，而其他的标签元素等不会跟着改变。-->
     <router-view/>
+
   </div>
 </template>
 
