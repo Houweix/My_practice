@@ -30,3 +30,5 @@
 6.cd 命令进入创建的工程目录，首先cd projectname（这里是自己建工程的名字）；
 7.安装项目依赖：npm install（时间比较长）
 8.启动项目，输入：npm run dev
+9.构建发布项目:npm run build
+会生成一个dist文件
