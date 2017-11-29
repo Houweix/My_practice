@@ -6462,7 +6462,7 @@ function parseHTML (html, options) {
         }
       }
     } else {
-      // If no tag name is provided, clean shop
+      // If no tag name is provided, clean 2-shop
       pos = 0;
     }
 
