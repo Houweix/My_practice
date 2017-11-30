@@ -30,9 +30,11 @@ export default {
     color: #fff;
 }
 
+/*因为不能直接在router-link标签添加样式（因为渲染后会变成a标签）*/
 .footer li a{
   color: #ccc;
 }
+
 
 .footer a.router-link-active{
   color: #fff;
