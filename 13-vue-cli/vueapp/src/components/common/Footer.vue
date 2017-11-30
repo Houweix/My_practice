@@ -35,7 +35,7 @@ export default {
   color: #ccc;
 }
 
-
+/*点击哪个那个被激活（.router-link-active）*/
 .footer a.router-link-active{
   color: #fff;
 }
