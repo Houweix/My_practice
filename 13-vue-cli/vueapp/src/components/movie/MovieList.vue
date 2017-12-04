@@ -1,11 +1,9 @@
 <template>
 <div class="movie-list">
   <ul>
-    <!--这里使用v-for循环显示读取的10个电影,使用key是为了增加循环效率-->
     <li @click="goDetail(movie.id)" v-for="movie in moveList" :key="movie.id" class="movie">
     <!-- <router-link to="/movie/movieDetail/"> -->
       <div class="movie-img">
-        <!--注意这里的src是动态属性，因为地址不断变化-->
         <img :src="movie.img" alt="">
       </div>
       <div class="movie-info">
@@ -15,9 +13,9 @@
         <p>{{movie.showInfo}}</p>
       </div>
     <!-- </router-link> -->
-
+      
     </li>
-
+   
   </ul>
   <div class="loading" v-show="loadingShow">
     <img src="../../assets/img/loading.gif" alt="">
@@ -29,27 +27,22 @@
 
 </template>
 <script>
-/*
+/* 
 npm install jquery --save
 import $ from 'jquery'
 $(window).on('scroll', function(){
 
-});
+}); 
 */
-
-//使用axios获取数据
 import Axios from "axios";
 export default {
-  // 注意data要求是一个function，这里使用ES6写法
   data() {
     return {
-      //灵活使用数组的长度（offset）
       moveList: [],
       loadingShow: true,
       tip: false
     };
   },
-  //钩子函数，在elem加载完成后触发
   mounted() {
     this.loadData();
     // 监听滚动条事件
@@ -77,7 +70,6 @@ export default {
       // url2表示本地的电影数据json文件
       let url2 = "/static/data/moviedata.json";
       Axios.get(url2)
-        //then为
         .then(res => {
           this.loadingShow = false;
           // 由于猫眼接口用不了了，所以我们无奈采用假分页实现异步分页，但其实每次是返回所有数据，通过slice函数从所有数据中截取所需数据
@@ -92,7 +84,6 @@ export default {
           this.moveList = this.moveList.concat(data);
         })
         .catch(() => {
-          //获取数据失败时进入catch函数
           alert("获取数据失败");
         });
     },
@@ -103,19 +94,15 @@ export default {
 };
 </script>
 <style scoped>
-
-/*注意这里面的单位都使用rem  */
 .movie-list {
   margin: 1rem 0;
 }
 .movie {
-  /*父元素设置盒模型*/
   display: flex;
   padding: 0.2rem;
   border-bottom: 1px solid #ccc;
 }
 .movie-img {
-  /*子元素设置分一份，宽度设为0*/
   flex-grow: 1;
   width: 0;
   margin-right: 0.2rem;

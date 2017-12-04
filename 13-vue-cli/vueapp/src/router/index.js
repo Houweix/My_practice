@@ -6,6 +6,8 @@ import MovieDetail from '@/components/movie/MovieDetail'
 import Music from '@/components/music/Music'
 import Book from '@/components/book/Book'
 import Photo from '@/components/photo/Photo'
+import PhotoList from '@/components/photo/PhotoList'
+import PhotoDetail from '@/components/photo/PhotoDetail'
 import MusicList from '@/components/music/MusicList'
 import MusicAlbums from '@/components/music/MusicAlbums'
 
@@ -15,12 +17,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      // 设置重定向，打开界面自动跳转到movieList
       redirect: '/movie/movieList'
     }, {
       path: '/movie',
       component: Movie,
-      // 设置子路由
       children: [
         {
           path: 'movieList',
@@ -48,7 +48,16 @@ export default new Router({
       component: Book
     }, {
       path: '/photo',
-      component: Photo
+      component: Photo,
+      children: [
+        {
+          path: 'photoList',
+          component: PhotoList
+        }, {
+          path: 'photoDetail/:index',
+          component: PhotoDetail
+        }
+      ]
     }
   ]
 })

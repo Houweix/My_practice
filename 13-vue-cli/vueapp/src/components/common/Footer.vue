@@ -3,7 +3,7 @@
       <li><router-link to="/movie/movieList">电影</router-link>  </li>
       <li><router-link to="/music">音乐</router-link></li>
       <li><router-link to="/book">书籍</router-link></li>
-      <li><router-link to="/photo">图片</router-link></li>
+      <li><router-link to="/photo/photoList">图片</router-link></li>
   </ul>
 </template>
 
@@ -30,12 +30,11 @@ export default {
     color: #fff;
 }
 
-/*因为不能直接在router-link标签添加样式（因为渲染后会变成a标签）*/
 .footer li a{
   color: #ccc;
+  outline: none;
 }
 
-/*点击哪个那个被激活（.router-link-active）*/
 .footer a.router-link-active{
   color: #fff;
 }

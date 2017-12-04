@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /*相对定位的基准*/
+        #container {
+            width: 400px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /*把所有照片叠在一起*/
+        #imgs li {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #container img {
+            width: 400px;
+            height: 600px;
+        }
+
+        /*右下角选项卡*/
+        #tabs {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #tabs li {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            float: left;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        /*选中的变成橘黄色的*/
+        #tabs .selected {
+            background: orange;
+        }
+    </style>
+
+</head>
+                        <!--添加滑入、     滑出的事件-->
+<div id="container" @mouseover="stop" @mouseout="start">
+    <ul id="imgs">
+
+        <li v-for="(item,index) in imgs" v-show="index == nowIndex">
+            <img :src="item" alt="">
+        </li>
+    </ul>
+    <ul id="tabs">
+        <li v-for="(item,index) in imgs.length" :class="{selected: index == nowIndex}" @mouseover="changeImg(index)">
+            {{item}}
+        </li>
+    </ul>
+</div>
+
+<body>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#container',
+            data: {
+                imgs: [
+                    'https://img3.doubanio.com/lpic/s24468373.jpg',
+                    'https://img3.doubanio.com/lpic/s6989253.jpg',
+                    'https://img3.doubanio.com/lpic/s27102925.jpg'
+                ],
+                nowIndex: 0,
+                timer: null
+            },
+            methods: {
+                changeImg(index) {
+                    this.nowIndex = index;
+                },
+                stop() {
+                    clearInterval(this.timer);
+                },
+                start() {
+                    this.play();
+                },
+                play() {
+                    this.timer = setInterval(() => {
+                        this.nowIndex++;
+                        if (this.nowIndex == this.imgs.length) {
+                            this.nowIndex = 0;
+                        }
+                    }, 1000);
+                }
+            },
+            mounted() {
+                this.play();
+            }
+        });
+    </script>
+
+</body>
+
+</html>

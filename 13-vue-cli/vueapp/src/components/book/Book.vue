@@ -32,24 +32,24 @@ export default {
     margin: 1rem 0;
 }
 .my-swipe {
-  height: 200px;
+  height: 600px;
   color: #fff;
   font-size: 30px;
   text-align: center;
 }
 
 .slide1 {
-  background-image: url('https://img3.doubanio.com/lpic/s24468373.jpg');
+  background: url('https://img3.doubanio.com/lpic/s24468373.jpg') no-repeat;
   color: #fff;
 }
 
 .slide2 {
-  background-image: url('https://img3.doubanio.com/lpic/s6989253.jpg');
+  background: url('https://img3.doubanio.com/lpic/s6989253.jpg') no-repeat;
   color: #000;
 }
 
 .slide3 {
-  background-image: url('https://img3.doubanio.com/lpic/s27102925.jpg');
+  background: url('https://img3.doubanio.com/lpic/s27102925.jpg') no-repeat;
   color: #fff;
 }
 </style>
