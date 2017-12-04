@@ -44,7 +44,7 @@ export default {
 }
 
 .slide2 {
-  background: url('https://img3.doubanio.com/lpic/s6989253.jpg') no-repeat;
+  background: url('https://img3.doubanio.com/lpic/s6989253.jpg') no-repeat;,mnmmmmmmmmm
   color: #000;
 }
 
