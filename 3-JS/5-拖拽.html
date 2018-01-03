@@ -12,6 +12,7 @@
             width: 200px;
             height: 200px;
             background: #ff0000;
+            /*设置绝对定位，初始位置在左上角*/
             position: absolute;
             top: 0;
             left: 0;
@@ -19,19 +20,29 @@
     </style>
 </head>
 <body>
-<div id="div1"></div>
+    <div id="div1"></div>
 <script>
+
+    // 思路：利用鼠标距离小块边缘的位置不变
+
     var oDiv = document.getElementById("div1");
+
+    //点击时触发事件
     oDiv.onmousedown = function(e){
 
+        // 用事件发生时鼠标距离浏览器边缘的距离 - 当前元素距离最近已经定位父元素的距离
         var iDisX = e.clientX - oDiv.offsetLeft;    //鼠标距离小块边缘的位置（左）
         var iDisY = e.clientY - oDiv.offsetTop;     //鼠标距离小块边缘的位置（上）
+
+        // 给document绑定事件
         document.onmousemove = function(e){
             e = e || window.event;
             oDiv.style.left = e.clientX - iDisX + "px";     //小块距离浏览器左边的距离
             oDiv.style.top = e.clientY - iDisY + "px";      //小块距离浏览器上边的距离
-        };
+        };              //最后记得要拼上单位px
     };
+
+    //当抬起鼠标时取消移动事件
     document.onmouseup = function(){
         document.onmousemove = null;
     };

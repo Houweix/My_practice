@@ -34,6 +34,7 @@
     <div id="div3"></div>
 
     <script>
+        //将拖拽封装一个方法
         function drag(elem){
             elem.onmousedown = function(e){
                 var iDisX = e.clientX - elem.offsetLeft;
@@ -52,6 +53,8 @@
         var oDiv1 = document.getElementById("div1");
         var oDiv2 = document.getElementById("div2");
         var oDiv3 = document.getElementById("div3");
+
+        //然后那个元素需要拖拽那个元素就作为参数被这个函数调用
         drag(oDiv1);
         drag(oDiv2);
         drag(oDiv3);
