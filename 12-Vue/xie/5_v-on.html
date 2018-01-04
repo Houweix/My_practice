@@ -23,18 +23,21 @@
 
 <body>
     <div id="app">
-        <!-- v-on 简写：@ -->
+        <!-- v-on 简写：@   注意要想使用事件对象event需要写成$event-->
         <button @click.once="add(2, $event)">加1</button>
         <div>{{count}}</div>
 
         <input type="text" @keyup.enter="handler" v-model="keyword">
 
+        <!--v-on的对象形式-->
         <button v-on="{ mousedown: doThis, mouseup: doThat }">btn</button>
 
         <div class="div1" @click='clickDiv1'>
+            <!--click.stops中的stop是修饰符，表明阻止事件冒泡-->
             <div class="div2" @click.stop='clickDiv2()'></div>
         </div>
 
+        <!--@click.prevent中的prevent是修饰符，表示阻止浏览器默认行为-->
         <a href="http://www.baidu.com" @click.prevent="baiduHandler($event)">baidu</a>
     </div>
 

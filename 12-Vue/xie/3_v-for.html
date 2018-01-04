@@ -68,12 +68,14 @@
                 //将排序后的结果返回个sortArr属性
                 sortArr() {
                     return this.arr.sort(function (a, b) {
+                        // a - b是正序
                         return a - b;
                     });
                 },
                 //将排序后的结果返回个sortUser属性
                 sortUser(){
                     return this.users.sort(function(a, b){
+                        // b - a 是逆序
                         return b.age - a.age;
                     });
                 }
