@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+
+            width: 200px;
+            height: 200px;
+            background: #f00;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="div1" style=""></div>
+<script>
+
+    let oDiv1 = document.getElementById("div1");
+    //这样只能取到内联样式的值，但是可以赋值
+    console.log(oDiv1.style.width);
+
+
+</script>
+</body>
+</html>
