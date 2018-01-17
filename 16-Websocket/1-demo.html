@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Websocket demo</title>
+</head>
+<body>
+    <h1> Websocket Echo Test</h1>
+
+    <!--发送-->
+    <input type="text" id="sendTxt">
+
+    <button id="sendBtn">发射！</button>
+    <!--显示接收到的内容-->
+    <div id="recv"></div>
+
+    <script type="text/javascript">
+    var websocket = new WebSocket("ws://echo.websocket.org");
+
+    //连接建立成功的回调函数
+    websocket.onopen = function () {
+        console.log('open');
+        document.getElementById("recv").innerHTML = "Connected";
+    };
+
+    // 断开连接时回调函数
+    websocket.onclose = function () {
+        console.log('close');
+    };
+
+    //接收到消息时的回调函数
+    websocket.onmessage = function (e) {
+        //接收到的数据在e.data中
+        console.log(e.data);
+        document.getElementById('recv').innerHTML = e.data;
+    };
+
+    window.onload = function () {
+
+        //点击发送按钮的动作
+        document.getElementById('sendBtn').onclick = function () {
+            var txt = document.getElementById('sendTxt').value;
+            websocket.send(txt);
+        }
+
+    };
+
+
+</script>
+</body>
+</html>
