@@ -15,35 +15,37 @@
     <div id="recv"></div>
 
     <script type="text/javascript">
-    var websocket = new WebSocket("ws://echo.websocket.org");
 
-    //连接建立成功的回调函数
-    websocket.onopen = function () {
-        console.log('open');
-        document.getElementById("recv").innerHTML = "Connected";
-    };
+        //使用本地自己搭建的nodejs服务器，端口号3000
+        var websocket = new WebSocket("ws://localhost:3000");
 
-    // 断开连接时回调函数
-    websocket.onclose = function () {
-        console.log('close');
-    };
+        //连接建立成功的回调函数
+        websocket.onopen = function () {
+            console.log('open');
+            document.getElementById("recv").innerHTML = "Connected";
+        };
 
-    //接收到消息时的回调函数
-    websocket.onmessage = function (e) {
-        //接收到的数据在e.data中
-        console.log(e.data);
-        document.getElementById('recv').innerHTML = e.data;
-    };
+        // 断开连接时回调函数
+        websocket.onclose = function () {
+            console.log('close');
+        };
 
-    window.onload = function () {
+        //接收到消息时的回调函数
+        websocket.onmessage = function (e) {
+            //接收到的数据在e.data中
+            console.log(e.data);
+            document.getElementById('recv').innerHTML = e.data;
+        };
 
-        //点击发送按钮的动作
-        document.getElementById('sendBtn').onclick = function () {
-            var txt = document.getElementById('sendTxt').value;
-            websocket.send(txt);
-        }
+        window.onload = function () {
 
-    };
+            //点击发送按钮的动作
+            document.getElementById('sendBtn').onclick = function () {
+                var txt = document.getElementById('sendTxt').value;
+                websocket.send(txt);
+            }
+
+        };
 
 
 </script>
