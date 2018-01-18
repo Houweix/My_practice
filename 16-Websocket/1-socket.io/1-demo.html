@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket.io</title>
+    <!--引入WebSocket.io（cdn）-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+</head>
+<body>
+
+<script>
+    var socket = io('http://localhost:3000');
+    socket.on('news', function (data) {
+        console.log(data);
+        //发送给服务器的数据，直接发送对象法
+        socket.emit('my other event', { my: 'data' });
+        // 注意，这里如果使用io.emit，代表广播
+    });
+</script>
+</body>
+</html>
