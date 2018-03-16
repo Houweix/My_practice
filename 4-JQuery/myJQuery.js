@@ -1,7 +1,8 @@
+//获取样坏死
 function getStyle(elem, attr) {
     if(elem.currentStyle){//IE
         return elem.currentStyle[attr];
-    }else if(window.getComputedStyle){
+    }else if(window.getComputedStyle){  //chrome和firefox
         return getComputedStyle(elem, false)[attr];
     }else{
         return elem.style[attr];
