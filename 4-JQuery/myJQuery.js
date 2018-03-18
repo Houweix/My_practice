@@ -1,4 +1,4 @@
-//获取样坏死
+//获取样式
 function getStyle(elem, attr) {
     if(elem.currentStyle){//IE
         return elem.currentStyle[attr];
