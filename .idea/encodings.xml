@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/2-shop/CSS/common.css" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/2-shop/CSS/index.css" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/5-JQuery练习/2-网页换肤/demo5.html" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/5-JQuery练习/换肤/5-换肤.html" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/19-css3-images-view/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/2-shop/css/common.css" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/2-shop/css/index.css" charset="GBK" />
   </component>
 </project>
