@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+    //     用js实现一下键值对按keyascII码从小到大排序
+    // {a:'A',console:'log',c:'C',ajax:'Ajax',react:'React',refresh:'F5',vuex:'Vuex',vue:'Vue.js'}
+
+        var o = {
+            a: 'A',
+            console: 'log',
+            c: 'C',
+            ajax: 'Ajax',
+            react: 'React',
+            refresh: 'F5',
+            vuex: 'Vuex',
+            vue: 'Vue.js'
+        };
+
+        function sortKey(obj) {
+            var rs = [];
+            for (var p in obj) {
+                rs.push(p);
+            }
+            return rs.sort();
+        }
+
+
+
+        //写一个正则表达式来匹配验证码，设变量为password，是否为5~15位
+        //的英文字母开头，并且英文字母，数字，小数点、横线或下划线的字符
+        //组合，不匹配时提示“密码格式错误”，匹配时提示“密码格式正确”
+        function checkCaptcha(password){
+			var re = /^[a-zA-Z][a-zA-Z0-9\.\-_]{4,14}$/;
+			return re.test(password)?'密码格式正确':'密码格式错误';
+		}
+
+
+    </script>
+</body>
+
+</html>
