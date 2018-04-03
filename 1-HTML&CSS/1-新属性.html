@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
     <style type="text/css">
         #div1 {
             width: 350px;
@@ -15,11 +16,15 @@
         }
 
         function drag(ev) {
+            console.log(ev);
             ev.dataTransfer.setData("Text", ev.target.id);
         }
 
         function drop(ev) {
             var data = ev.dataTransfer.getData("Text");
+
+            console.log(data);
+
             ev.target.appendChild(document.getElementById(data));
             ev.preventDefault();
         }
