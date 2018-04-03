@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css下划线</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style>
+        ul {
+            /*弹性盒模型布局*/
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+
+            position: absolute;
+            width: 800px;
+
+            /*块级居中*/
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+
+        li {
+            position: relative;
+            padding: 20px;
+            font-size: 24px;
+            color: #000;
+            line-height: 1;
+
+            border-bottom: 0 solid #000;
+            -webkit-transition: 0.2s all linear;
+            transition: 0.2s all linear;
+            cursor: pointer;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            left: 100%;
+            /*先设置宽度为0，hover时再变成100%*/
+            width: 0;
+            height: 100%;
+            border-bottom: 2px solid #000;
+
+            -webkit-transition: 0.2s all linear;
+            transition: 0.2s all linear;
+        }
+
+        /*hover 的时候，下划线要从一侧运动展开。*/
+
+        /*所以，我们利用绝对定位，将 li 的伪元素的宽度设置为0，*/
+
+        /*在 hover 的时候，宽度从 width: 0 -> width: 100%*/
+
+        /*这里注意伪元素要写在最后*/
+
+        li:hover::before {
+            /* 改变线收回的方向：相当于一开始平移到右边，hover时回到起点。 */
+            left: 0;
+            width: 100%;
+
+            -webkit-transition-delay: 0.1s;
+            transition-delay: 0.1s;
+        }
+
+        /* 使用~（兄弟选择符）实现不改变当前 hover 的 li 的下划线移动方式却能改变它下一个 li 的下划线的移动方式 */
+        li:hover~li::before {
+            left: 0;
+        }
+
+
+        li:active {
+            background: #000;
+            color: #fff;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--要求：-->
+    <!--1. 导航栏目的 li 的宽度是不固定的-->
+    <!--2. 当从导航的左侧 li 移向右侧 li，下划线从左往右移动。-->
+    <!--3. 同理，当从导航的右侧 li 移向左侧 li，下划线从右往左移动。-->
+    <ul>
+        <li>不可思议的 CSS</li>
+        <li>导航栏</li>
+        <li>光标下划线跟随</li>
+        <li>PURE CSS</li>
+        <li>Coco</li>
+    </ul>
+</body>
+
+</html>
