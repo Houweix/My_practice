@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+
+
+    <div id="div1">
+
+        123
+
+    </div>
+
+    <script>
+        function ELem(id) {
+            this.elem = document.getElementById(id);
+        }
+
+        //扩展原型
+        ELem.prototype.html = function (val) {
+            var elem = this.elem;
+
+            if (val) {
+                //有值就设置
+                elem.innerHTML = val;
+                return this; //链式操作
+            } else {
+                //没值就返回
+                return elem.innerHTML;
+            }
+
+        }
+
+        ELem.prototype.on = function (type, fn) {
+            var elem = this.elem;
+            elem.addEventListener(type, fn)
+        };
+
+
+
+
+        var div1 = new ELem('div1');
+        console.log(div1.html());
+    </script>
+</body>
+
+</html>
