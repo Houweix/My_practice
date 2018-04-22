@@ -9,139 +9,143 @@
     <style>
 
         /*#div{*/
-            /*width: 200px;*/
-            /*border-width: 100px;*/
-            /*border-style: solid;*/
-            /*border-color: #ff0000;*/
-            /*border-right-color: #ffff00;*/
+        /*width: 200px;*/
+        /*border-width: 100px;*/
+        /*border-style: solid;*/
+        /*border-color: #ff0000;*/
+        /*border-right-color: #ffff00;*/
         /*}*/
-        .box{
+        .box {
 
             width: 200px;
             padding: 50px;
             border: 1px solid #000;
             /*开启怪异盒模型  width = content + padding + border*/
-            box-sizing:border-box;
+            box-sizing: border-box;
 
         }
     </style>
 </head>
 <body>
-        <div id="div" class="box"></div>
+<div id="div" class="box"></div>
 </body>
 <script>
 
-//    function aa(name) {
-//        this.name = name;
-//    }
-//
-//    aa.prototype = {
-//        getName:function () {
-//            return this.name;
-//        }
-//
-//    }
-//
-//    var my = new aa('dog');
-//    var get = my.getName;
-//    console.log(my);
+    //    function aa(name) {
+    //        this.name = name;
+    //    }
+    //
+    //    aa.prototype = {
+    //        getName:function () {
+    //            return this.name;
+    //        }
+    //
+    //    }
+    //
+    //    var my = new aa('dog');
+    //    var get = my.getName;
+    //    console.log(my);
 
-//    let i = 0;
-//
-//    const a =[];
-//
-//    for(let i = 0;i < 10;i++){
-//
-//        a[i] = function () {
-//            console.log(i);
-//        };
-//
-//    }
-//    a[1]();
-
-
-//    for(var i = 1;i <= 3; i++){
-//
-//       setTimeout(function () {
-//           console.log(i);},0);
-//
-//    }
+    //    let i = 0;
+    //
+    //    const a =[];
+    //
+    //    for(let i = 0;i < 10;i++){
+    //
+    //        a[i] = function () {
+    //            console.log(i);
+    //        };
+    //
+    //    }
+    //    a[1]();
 
 
-//    setTimeout(function () {
-//       console.log(1);
-//    },0);
-//
-//    //返回一个promise对象
-//    Promise.resolve(function(){console.log(2)});
-//
-//    new Promise(function (resolve) {
-//       console.log(3);
-//    });
-//
-//    console.log(4);
-
-//
-//    var name = 'World!';
-//    (function () {
-//        //变量提升到最上面，相当于var name；（此时是undefined）
-//        if(typeof name === 'undefined'){
-//            var name = 'jack';
-//            console.log(name);
-//            console.log('Goodbye'+name);
-//        }else {
-//
-//            console.log('hello'+name);
-//        }
-//
-//
-//    })();
+    //    for(var i = 1;i <= 3; i++){
+    //
+    //       setTimeout(function () {
+    //           console.log(i);},0);
+    //
+    //    }
 
 
+    //    setTimeout(function () {
+    //       console.log(1);
+    //    },0);
+    //
+    //    //返回一个promise对象
+    //    Promise.resolve(function(){console.log(2)});
+    //
+    //    new Promise(function (resolve) {
+    //       console.log(3);
+    //    });
+    //
+    //    console.log(4);
 
-//    var a,b;
-//    (function () {
-//        console.log(a);
-//        console.log(b);
-//        var a = b = 3;
-////      等价于 var a = 3; b = 3;
-//        console.log(a);
-//        console.log(b);
-//    })();
-//
-//    console.log(a);
-//    console.log(b);
-
-
-//    function mySort() {
-//        var tags = new Array();//使用数组作为参数存储容器
-//
-//        //使用arguments获取参数
-//        for(let i = 0; i < arguments.length;i++){
-//            tags.push(arguments[i]);
-//        }
-//
-//        tags.sort(function (a, b) {
-//            //从小到大（递增）
-//            return a - b;
-//        })
-//
-//
-//        return tags;//返回已经排序的数组
-//    }
-//    var result = mySort(50,11,16,32,24,99,57,100);//传入参数个数不确定
-//    console.info(result);//显示结果
+    //
+    //    var name = 'World!';
+    //    (function () {
+    //        //变量提升到最上面，相当于var name；（此时是undefined）
+    //        if(typeof name === 'undefined'){
+    //            var name = 'jack';
+    //            console.log(name);
+    //            console.log('Goodbye'+name);
+    //        }else {
+    //
+    //            console.log('hello'+name);
+    //        }
+    //
+    //
+    //    })();
 
 
+    //    var a,b;
+    //    (function () {
+    //        console.log(a);
+    //        console.log(b);
+    //        var a = b = 3;
+    ////      等价于 var a = 3; b = 3;
+    //        console.log(a);
+    //        console.log(b);
+    //    })();
+    //
+    //    console.log(a);
+    //    console.log(b);
 
 
-//    产生任意区间的随机数
+    //    function mySort() {
+    //        var tags = new Array();//使用数组作为参数存储容器
+    //
+    //        //使用arguments获取参数
+    //        for(let i = 0; i < arguments.length;i++){
+    //            tags.push(arguments[i]);
+    //        }
+    //
+    //        tags.sort(function (a, b) {
+    //            //从小到大（递增）
+    //            return a - b;
+    //        })
+    //
+    //
+    //        return tags;//返回已经排序的数组
+    //    }
+    //    var result = mySort(50,11,16,32,24,99,57,100);//传入参数个数不确定
+    //    console.info(result);//显示结果
 
-    function getRandom(n,m) {
-        return Math.floor(Math.random() * (m - n +1) + n);
+
+    //    产生任意区间的随机数
+
+    function getRandom(n, m) {
+        return Math.floor(Math.random() * (m - n + 1) + n);
     }
 
-    console.log(getRandom(40,60));
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    // console.log(getRandom(40, 42));
+    console.log(getRandomInt(25.5, 42));
 
 </script>
 </html>
