@@ -137,11 +137,18 @@
         return Math.floor(Math.random() * (m - n + 1) + n);
     }
 
-    //获取整形指定区间的随机数
+    //获取整形指定区间的随机数(不包含max）
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    //包含max
+    function getRandomIntInclusive(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     // console.log(getRandom(40, 42));
