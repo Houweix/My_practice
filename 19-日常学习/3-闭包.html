@@ -23,6 +23,27 @@
     var a = 200;
     f1();   //100
 
+//-------------------------------------------------
+    //闭包的实际应用封装
+    function isFirstLoad() {
+        let _list = [];
+        return function (id) {
+            if(_list.indexOf(id) !== -1){
+                //已存在
+                return false;
+            }else{
+                //未重复
+                _list.push(id);
+                return true;
+            }
+        }
+    }
+
+    let firstLoad = isFirstLoad();
+    console.log(firstLoad(10));  //true
+    console.log(firstLoad(10));  //false
+    console.log(firstLoad(20));  //true
+
 
 </script>
 </body>
