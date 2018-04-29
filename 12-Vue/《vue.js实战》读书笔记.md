@@ -1,5 +1,4 @@
 #  《vue.js实战》读书笔记
-
 ## 内容简介：
 以vue.js2.0为基础，渐进式的学习vue。
 2017年10月第一版
@@ -27,14 +26,18 @@ el：指定页面中已经存在的DOM元素来挂载Vue实例。CSS选择器或
 vue实例属性和方法都以$开头。
 ```
 var app = new Vue({
-	el:’#app’,
-	data:{
-		a: 2
-	}
+    el:’#app’,
+    data:{
+        a: 2
+    }
 })
-```
+
 //可以通过vue实例访问数据
-app	.a 	// 2
+app.a   // 2
+
+```
+
+
 
 也可以指向一个已经存在的变量。
 
@@ -109,7 +112,7 @@ v-on：click/dblclick/keyup/mousemove
 3. 也可以使用三元表达式切换class。同时可以在数组语法中嵌套对象语法。
 
 ### 绑定内联样式
-使用：style可以给元素直接绑定内联样式（注意拼接px）
+使用：style可以给元素直接绑定内联 样式（注意拼接px）
 
 **CSS使用驼峰或短横分隔命名**
 绑定一个样式对象通常更好，多个对象可以使用数组。
@@ -121,10 +124,10 @@ v-cloak（不需要表达式）
 配合display：none来隐藏未编译完成的元素。直到编译结束才会显示。
 ```
 [v-cloak] {
-	dispaly:none;
+    dispaly:none;
 }
 <div v-cloak>
-	{{ message }}
+    {{ message }}
 </div>
 ```
 
