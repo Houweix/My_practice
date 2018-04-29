@@ -169,4 +169,30 @@ Vue检测到数组变化时，并不是直接重新渲染整个列表，相同�
 1. 通过索引直接设置项。
 2. 修改数组长度
 
-解决第一个问题可以使用
+解决第一个问题可以使用 Vue.set解决,在webpack组件化方式中使用this.$set.
+
+### 过滤与排序
+当你不想改变数组，想通过一个数组的副本来做过滤或排序的显示时，可以使用计算属性来返回过滤或排序后的数组：
+```
+computed: {
+    //计算属性filterBooks依赖books，但不会修改books
+    filterBooks: function () {
+        return this.books.filter(function(){
+            return book.name.match(/javascript/);
+        });
+    }
+}
+
+computed: {
+    //新增一个排序的计算属性
+    sortedBooks: function () {
+        return this.books.sort(function(a,b){
+            return a - b;
+        });
+    }
+}
+```
+### 方法与事件
+#### 基本用法
+
+
