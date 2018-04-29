@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //一个能遍历数组和对象的统一的方法
+    function unify_forEach(obj, fn) {
+        let key;
+        //如果这个对象是数组
+        if (obj instanceof Array) {
+            //使用forEach遍历
+            obj.forEach(function (item, index) {
+                fn(index, item);
+            })
+        } else {
+            //不是数组，是对象
+            for (key in obj) {
+                //使用for in遍历
+                fn(key, obj[key]);
+
+            }
+
+
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>
